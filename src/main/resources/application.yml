@@ -7,13 +7,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-
-# fix for naming strategy (Unknown column 'recipe0_.image_path' in 'field list')
-#    hibernate:
-#      naming:
-#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
-#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-
+    generate-ddl: true
+    show-sql: true
 logging:
   level:
     org:
