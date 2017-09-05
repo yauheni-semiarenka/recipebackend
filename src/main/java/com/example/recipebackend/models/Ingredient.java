@@ -1,13 +1,6 @@
 package com.example.recipebackend.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,10 +13,10 @@ public class Ingredient {
     private long id;
     private String name;
     private int amount;
-    
-    @ManyToOne
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "recipe_id")
-    @JsonIgnore
     private Recipe recipe;
     
 	public Recipe getRecipe() {

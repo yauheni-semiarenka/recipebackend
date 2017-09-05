@@ -36,7 +36,7 @@ public class RecipeController {
         return recipeRepository.findAll();
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin //origins = "http://localhost:4200"
     @RequestMapping(path = "setData", method = RequestMethod.POST)
     public String setData(@RequestBody List<Recipe> recipes) {
 //    	log.info("recipes= ", recipes);
