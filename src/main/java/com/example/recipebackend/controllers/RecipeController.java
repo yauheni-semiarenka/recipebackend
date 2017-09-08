@@ -21,7 +21,7 @@ public class RecipeController {
 	
     @Autowired
     private RecipeRepository recipeRepository;
-
+    
     @RequestMapping(path = "getData", method = RequestMethod.GET)
     public List<Recipe> getData() {
 //    	List<Ingredient> ingredients = new ArrayList<Ingredient>();
