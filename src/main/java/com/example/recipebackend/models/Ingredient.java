@@ -1,10 +1,12 @@
 package com.example.recipebackend.models;
 
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
+import javax.persistence.*;
+
+@Data
 @Entity
 public class Ingredient {
     @Id
@@ -16,33 +18,6 @@ public class Ingredient {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "recipe_id")
+    @JoinColumn(name = "recipe_id", foreignKey = @ForeignKey(name = "recipe_FK"))
     private Recipe recipe;
-    
-	public Recipe getRecipe() {
-		return recipe;
-	}
-	public void setRecipe(Recipe recipe) {
-		this.recipe = recipe;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-    
-    
 }
