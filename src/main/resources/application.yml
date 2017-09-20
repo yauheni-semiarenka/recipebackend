@@ -1,4 +1,10 @@
+server:
+  port: 3333
+#${PORT:3333}
+
 spring:
+  application:
+    name: recipe-service
   datasource:
     url: jdbc:mysql://localhost:3306/recipe_app_db?useSSL=false
     username: root
@@ -9,6 +15,20 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
     generate-ddl: true
     show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+# ${DISCOVERY_URL:http://localhost:8761}/eureka/
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+
+#ribbon:
+#  eureka:
+#    enabled: true
+
 logging:
   level:
     org:
